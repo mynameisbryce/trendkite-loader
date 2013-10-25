@@ -1,0 +1,310 @@
+@charset "UTF-8";
+/*
+Component: Trendkite Loader
+Author: Bryce Thompson
+Company: Handsome ATX
+Description: An animated loader sequenced via scripts.jquery.js. All animations are contained herein.
+*/
+/* _fonts.scss */
+@font-face {
+  font-family: 'TitilliumRegular';
+  src: url("../fonts/titillium-regular.eot");
+  src: url("../fonts/titillium-regular.eot") format("embedded-opentype"), url("../fonts/titillium-regular.woff") format("woff"), url("../fonts/titillium-regular.ttf") format("truetype"), url("../fonts/titillium-regular.svg#TitilliumRegular") format("svg");
+}
+
+@font-face {
+  font-family: 'TitilliumBold';
+  src: url("../fonts/titillium-bold.eot");
+  src: url("../fonts/titillium-bold.eot") format("embedded-opentype"), url("../fonts/titillium-bold.woff") format("woff"), url("../fonts/titillium-bold.ttf") format("truetype"), url("../fonts/titillium-bold.svg#TitilliumBold") format("svg");
+}
+
+/* line 13, ../sass/loader.scss */
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*
+Shape of logo mark
+*/
+/* line 22, ../sass/loader.scss */
+div.triangle {
+  width: 0;
+  height: 0;
+  border-bottom: 15px solid #305b78;
+  border-left: 15px solid transparent;
+  transform-origin: 0px 100% 0;
+  -webkit-transform-origin: 0px 100% 0;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  opacity: 0;
+  transform-origin: 15px 15px 0;
+  -webkit-transform-origin: 15px 15px 0;
+  transition: all .8s linear;
+  -webkit-transition: all .8s linear;
+  position: absolute;
+}
+
+/*
+Any instance of :after in relation to the DOM element div.triangle is the makeup of the second sequenced triangle within the logo mark
+*/
+/* line 42, ../sass/loader.scss */
+div.triangle:after {
+  width: 0;
+  height: 0;
+  border-bottom: 15px solid #305b78;
+  border-right: 15px solid transparent;
+  content: "";
+  display: block;
+  opacity: 0;
+  transform-origin: 0px 0px;
+  transform: rotateY(-90deg);
+  transition: all .4s linear;
+  transition-delay: .3s;
+  -webkit-transform-origin: 0px 0px;
+  -webkit-transform: rotateY(-90deg);
+  -webkit-transition: all .4s linear;
+  -webkit-transition-delay: .3s;
+}
+
+/*
+Any instance of :before in relation to the DOM element div.triangle is the makeup of the third sequenced triangle within the logo mark
+*/
+/* line 63, ../sass/loader.scss */
+div.triangle:before {
+  border-bottom: 15px solid rgba(0, 0, 0, 0);
+  border-left: 15px solid #305b78;
+  content: "";
+  display: block;
+  height: 0;
+  left: 0px;
+  position: absolute;
+  top: 15px;
+  width: 0;
+  transform-origin: 0px 0px;
+  transform: rotateX(-90deg);
+  transition: all .4s linear;
+  -webkit-transform-origin: 0px 0px;
+  -webkit-transform: rotateX(-90deg);
+  -webkit-transition: all .4s linear;
+  opacity: 0;
+}
+
+/*
+Initiates flipping sequence for Trendkite mark.
+*/
+/* line 86, ../sass/loader.scss */
+div.flip {
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  opacity: 1;
+  transition: all .4s linear;
+  -webkit-transition: all .4s linear;
+  border-bottom: 15px solid #4582ac;
+  width: 15px;
+}
+
+/* line 96, ../sass/loader.scss */
+div.flip:after {
+  transform: rotateY(0deg);
+  transition: all .4s linear;
+  transition-delay: .2s;
+  -webkit-transform: rotateY(0deg);
+  -webkit-transition: all .4s linear;
+  -webkit-transition-delay: .2s;
+  opacity: 1;
+  border-bottom: 15px solid #4582ac;
+}
+
+/* line 107, ../sass/loader.scss */
+div.flip:before {
+  opacity: 1;
+  transform: rotateX(0deg);
+  transition: all .4s linear;
+  transition-delay: .5s;
+  -webkit-transform: rotateX(0deg);
+  -webkit-transition: all .4s linear;
+  -webkit-transition-delay: .5s;
+  border-left: 15px solid #4582ac;
+}
+
+/*
+Trendkite Title
+*/
+/* line 122, ../sass/loader.scss */
+h1 {
+  color: #4582AC;
+  font-family: 'TitilliumRegular';
+  font-size: 23px;
+  font-weight: normal;
+  letter-spacing: 6px;
+  margin: 0 0 0 40px;
+  opacity: 0;
+  padding: 0;
+  text-transform: uppercase;
+  transform: rotateX(90deg);
+  transform-origin: 0 12px 0;
+  transition: all .4s linear;
+  transition-delay: .3s;
+  -webkit-transform: rotateX(90deg);
+  -webkit-transform-origin: 0 12px 0;
+  -webkit-transition: all .4s linear;
+  -webkit-transition-delay: .3s;
+}
+
+/* line 142, ../sass/loader.scss */
+h1 span {
+  font-family: 'TitilliumBold';
+}
+
+/* line 146, ../sass/loader.scss */
+h1.activate {
+  opacity: 1;
+  transition: all .4s linear;
+  transform: rotateX(0deg);
+  transition-delay: .5s;
+  -webkit-transition: all .4s linear;
+  -webkit-transform: rotateX(0deg);
+  -webkit-transition-delay: .5s;
+}
+
+/*
+Styles and animation for disappearing modal that contains the Trendkite loader animation
+*/
+/* line 161, ../sass/loader.scss */
+div.loader-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  background-color: white;
+  opacity: 1;
+}
+
+/*
+Reduces the opacity of the loader and this container
+*/
+/* line 177, ../sass/loader.scss */
+div.loader-container.disappear {
+  opacity: 0;
+  transition: .3s all linear;
+  -webkit-transition: .3s all linear;
+}
+
+/* line 184, ../sass/loader.scss */
+div.logo-container {
+  background-color: rgba(0, 0, 0, 0);
+  height: 32px;
+  left: 50%;
+  margin-left: -103px;
+  margin-top: -16px;
+  position: fixed;
+  top: 50%;
+  width: 206px;
+}
+
+/*
+Scales the logo upwards
+*/
+/* line 198, ../sass/loader.scss */
+div.logo-container.disappear {
+  transform: scale(2, 2);
+  -webkit-transform: scale(2, 2);
+  transition: .3s all ease-in;
+  -webkit-transition: .3s all ease-in;
+}
+
+/*
+Step 2 Color Change -- Changes to Green
+*/
+/* line 208, ../sass/loader.scss */
+div.flip.step2 {
+  border-right: 15px;
+  border-bottom: 15px solid #9cbe6f;
+  border-left: 15px solid transparent;
+  transition: all .4s linear;
+  -webkit-transition: all .4s linear;
+}
+
+/* line 217, ../sass/loader.scss */
+div.flip.step2:before {
+  border-left: 15px solid #9cbe6f;
+  transition: all .4s linear;
+  transition-delay: .5s;
+  -webkit-transition: all .4s linear;
+  -webkit-transition-delay: .5s;
+}
+
+/* line 225, ../sass/loader.scss */
+div.flip.step2:after {
+  border-bottom: 15px solid #9cbe6f;
+  transition: all .4s linear;
+  transition-delay: .3s;
+  -webkit-transition: all .4s linear;
+  -webkit-transition-delay: .3s;
+}
+
+/*
+Step 3 Color Change -- Changes to Purple
+*/
+/* line 237, ../sass/loader.scss */
+div.flip.step3 {
+  border-right: 15px;
+  border-bottom: 15px solid #8873bf;
+  border-left: 15px solid transparent;
+  transition: all .4s linear;
+  -webkit-transition: all .4s linear;
+}
+
+/* line 246, ../sass/loader.scss */
+div.flip.step3:before {
+  border-left: 15px solid #8873bf;
+  transition: all .4s linear;
+  transition-delay: .5s;
+  -webkit-transition: all .4s linear;
+  -webkit-transition-delay: .5s;
+}
+
+/* line 254, ../sass/loader.scss */
+div.flip.step3:after {
+  border-bottom: 15px solid #8873bf;
+  transition: all .4s linear;
+  transition-delay: .3s;
+  -webkit-transition: all .4s linear;
+  -webkit-transition-delay: .3s;
+}
+
+/*
+Step 4 Color Change -- Changes to Turquoise
+*/
+/* line 266, ../sass/loader.scss */
+div.flip.step4 {
+  border-right: 15px;
+  border-bottom: 15px solid #45aca4;
+  border-left: 15px solid transparent;
+  transition: all .4s linear;
+  -webkit-transition: all .4s linear;
+}
+
+/* line 274, ../sass/loader.scss */
+div.flip.step4:before {
+  border-left: 15px solid #45aca4;
+  transition: all .4s linear;
+  transition-delay: .5s;
+  -webkit-transition: all .4s linear;
+  -webkit-transition-delay: .5s;
+}
+
+/* line 282, ../sass/loader.scss */
+div.flip.step4:after {
+  border-bottom: 15px solid #45aca4;
+  transition: all .4s linear;
+  transition-delay: .3s;
+  -webkit-transition: all .4s linear;
+  -webkit-transition-delay: .5s;
+}
