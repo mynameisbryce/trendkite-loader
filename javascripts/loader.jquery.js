@@ -1,14 +1,20 @@
 $(document).ready(function(){
-		function init(){
+
+		init = function(){
 			goLoader();
 			resizeHandler();
 			uiEffects();
+			$(window).resize(function(){
+				resizeHandler();
+			});
 		}
-		function goLoader(){
+
+		goLoader = function(){
 			loaderFunc();
 			loadAnimate = setInterval(loaderFunc, 7200);
 		}
-		function loaderFunc(){
+
+		loaderFunc = function(){
 			var delay = 1200;
 			$('div.triangle').addClass('flip');
 			$('h1').addClass('activate');
@@ -30,24 +36,26 @@ $(document).ready(function(){
 				},delay);
 			}, delay);
 		}
-		function stopLoader(){
+
+		stopLoader = function(){
 			$('div.logo-container').addClass('disappear');
 			$('div.loader-container').addClass('disappear');
 			clearInterval(loadAnimate);
 		}
-		function uiEffects(){
+
+		uiEffects = function(){
 			$('body').click(function(){
 					stopLoader();
 			});
 		}
-		function resizeHandler(){
+
+		resizeHandler = function(){
 			var viewHeight = $(window).height();
 			var viewWidth = $(window).width();
 			$('div.loader-container').css('height',viewHeight);
 			$('div.loader-container').css('width', viewWidth);
 		}
+
 		init();
-		$(window).resize(function(){
-			resizeHandler();
-		});
+		
 });
